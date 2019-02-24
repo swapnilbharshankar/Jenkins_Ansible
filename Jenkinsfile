@@ -6,9 +6,6 @@ pipeline {
                 sh "/etc/init.d/docker start"
             }
         }
-    }
-
-    stages{
         stage('Run Ansible Playbook') {
             steps {
                 sh 'echo "Creating Wordpress Site"'
