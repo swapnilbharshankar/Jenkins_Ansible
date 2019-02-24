@@ -1,10 +1,18 @@
 pipeline {
     agent any
     stages{
+        stage('Start Docker Service') {
+            steps {
+                sh "/etc/init.d/docker start"
+            }
+        }
+    }
+
+    stages{
         stage('Run Ansible Playbook') {
             steps {
                 sh 'echo "Creating Wordpress Site"'
-                sh 'ansible-playbook anisble-playbook.yml'     
+                sh 'ansible-playbook ansible-playbook.yml'     
             }
         }
     }
