@@ -4,7 +4,7 @@ pipeline {
  //       choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
  //   }
     parameters {
-            choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+            choice(name: 'CHOICE', choices: ['section1', 'section2'], description: 'Pick something')
     }
     stages{
 
@@ -37,7 +37,7 @@ pipeline {
             steps {
                 ansiblePlaybook(
                     playbook: 'ansible-playbook.yml',
-                    tags: 'section1'
+                    tags: '${params.CHOICE}'
                 )
             }
         }
