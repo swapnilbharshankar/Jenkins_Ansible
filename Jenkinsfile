@@ -14,7 +14,7 @@ pipeline {
                     script {
 //                        def doesJavaRock = input(message: 'Please Provide Input', ok: 'Yes', 
                         def doesJavaRock = input(
-                            message: 'Please Provide Input', 
+                            message: 'Please Provide Input', ok: 'Next',
 //                            parameters: [booleanParam(defaultValue: true, 
                             parameters: [ 
                                     choice($class: 'TextParameterDefinition',name: 'ENVIRONMENT', choices: ['section1','section2'].join('\n'), description: 'Please select the Environment') 
