@@ -34,7 +34,7 @@ pipeline {
             }
         }
         stage('Run Ansibel Playbook') {
-            stpes {
+            steps {
                 sh "ansible-playbook ansible-playbook.yml -t ${params.CHOICE}"
             }
         }
