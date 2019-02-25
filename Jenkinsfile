@@ -11,7 +11,6 @@ pipeline {
         stage('Run Ansible Playbook') {
             ansiblePlaybook(
                 playbook: ansible-playbook.yml
-                extras: '-t section1'
             )
         }
 }
