@@ -4,11 +4,6 @@ pipeline {
         stage('Start Docker Service') {
             steps {
                 sh "/etc/init.d/docker start"
-            }
-        }
-    }
-
-    stages{
                 sh "pip uninstall idna --yes"
                 sh "pip2.7 install docker-compose"
             }
