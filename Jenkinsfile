@@ -38,7 +38,7 @@ pipeline {
             steps {
                 ansiblePlaybook(
                     playbook: 'ansible-playbook.yml',
-                    tags: '${SECTION.CHOICE}'
+                    tags: ${SECTION.CHOICE}
                 )
             }
         }
