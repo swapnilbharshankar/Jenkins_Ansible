@@ -18,6 +18,7 @@ pipeline {
         stage('Select ENV') {
             steps {
                 echo "Choice: ${params.CHOICE}"
+                SECTION.CHOICE = ${params.CHOICE}
 //                timeout(time: 30, unit: 'SECONDS') {
 //                    script {
 //                        def doesJavaRock = input(message: 'Please Provide Input', ok: 'Yes', 
@@ -37,7 +38,7 @@ pipeline {
             steps {
                 ansiblePlaybook(
                     playbook: 'ansible-playbook.yml',
-                    tags: '${params.CHOICE}'
+                    tags: '${SECTION.CHOICE}'
                 )
             }
         }
