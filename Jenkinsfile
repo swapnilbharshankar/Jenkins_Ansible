@@ -9,7 +9,7 @@ pipeline {
             }
         }
         stage('Run Ansible Playbook') {
-            setps {
+            steps {
                 ansiblePlaybook(
                     playbook: ansible-playbook.yml
                 )
