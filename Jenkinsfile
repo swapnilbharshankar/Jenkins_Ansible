@@ -9,10 +9,9 @@ pipeline {
             }
         }
         stage('Run Ansible Playbook') {
-            steps {
-                sh 'echo "Creating Wordpress Site"'
-                sh 'ansible-playbook ansible-playbook.yml'
-            }
+            ansiblePlaybook(
+                playbook: ansible-playbook.yml
+                extras: '-t section1'
+            )
         }
-    }
 }
