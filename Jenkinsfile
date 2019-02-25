@@ -19,7 +19,7 @@ pipeline {
                                     choice(name: 'ENVIRONMENT', choices: ['section1','section2'].join('\n'), description: 'Please select the Environment') 
                                 ]
                             )
-                        env = doesJavaRock.ENVIRONMENT
+                        env.ENVIRONMENT = doesJavaRock.ENVIRONMENT
                         echo ${env}
                         // Show the select input modal
 //                        def INPUT_PARAMS = input message: 'Please Provide Parameters', ok: 'Next',
