@@ -4,6 +4,10 @@ pipeline {
  //       choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
  //   }
     stages{
+        parameters [
+            choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+        ]
+
         stage('Start Docker Service') {
             steps {
                 sh "/etc/init.d/docker start"
@@ -13,9 +17,6 @@ pipeline {
         }
         stage('Select ENV') {
             steps {
-                parameters [
-                    choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-                ]
                 echo "Choice: ${params.CHOICE}"
 //                timeout(time: 30, unit: 'SECONDS') {
 //                    script {
