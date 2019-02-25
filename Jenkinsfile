@@ -13,14 +13,15 @@ pipeline {
                 timeout(time: 30, unit: 'SECONDS') {
                     script {
 //                        def doesJavaRock = input(message: 'Please Provide Input', ok: 'Yes', 
-                        def doesJavaRock = input(message: 'Please Provide Input', ok: 'Yes', 
+                        def doesJavaRock = input(
+                            id: 'userInput', message: 'Please Provide Input', 
 //                            parameters: [booleanParam(defaultValue: true, 
                             parameters: [ 
-                                    choice(name: 'ENVIRONMENT', choices: ['section1','section2'].join('\n'), description: 'Please select the Environment') 
+                                    choice($class: 'TextParameterDefinition',name: 'ENVIRONMENT', choices: ['section1','section2'].join('\n'), description: 'Please select the Environment') 
                                 ]
                             )
-                        env.ENVIRONMENT = doesJavaRock.ENVIRONMENT
-                        echo "ENV:" + ${env.ENVIRONMENT}
+                        //env.ENVIRONMENT = doesJavaRock.ENVIRONMENT
+                        echo ("ENV:" +userInput['ENVIRONMENT'])
                         // Show the select input modal
 //                        def INPUT_PARAMS = input message: 'Please Provide Parameters', ok: 'Next',
 //                            parameters: [
