@@ -22,6 +22,11 @@ pipeline {
                 }
             }
         }
+        stage('Echo ENV') {
+            steps {
+                sh "Env is : ${env.ENVIRONMENT}"
+            }
+        }
         stage('Run Ansible Playbook') {
             steps {
                 ansiblePlaybook(
