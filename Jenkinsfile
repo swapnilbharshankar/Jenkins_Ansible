@@ -11,8 +11,7 @@ pipeline {
         stage('Run Ansible Playbook') {
             steps {
                 ansiblePlaybook(
-                    playbook: ansible-playbook.yml,
-                    inventory: /etc/ansible/hosts
+                    playbook: ansible-playbook.yml
                 )
             }
         }
