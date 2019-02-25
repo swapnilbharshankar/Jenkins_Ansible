@@ -14,7 +14,9 @@ pipeline {
                     script {
                         // Show the select input modal
                         def INPUT_PARAMS = input message: 'Please Provide Parameters', ok: 'Next',
-                            choice(name: 'ENVIRONMENT', choices: ['section1','section2'].join('\n'), description: 'Please select the Environment')   
+                            parameters: [
+                                choice(name: 'ENVIRONMENT', choices: ['section1','section2'].join('\n'), description: 'Please select the Environment')   
+                            ]
                         env.ENVIRONMENT = INPUT_PARAMS.ENVIRONMENT 
                     }
                 }
