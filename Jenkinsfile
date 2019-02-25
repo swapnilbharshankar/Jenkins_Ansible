@@ -12,7 +12,7 @@ pipeline {
             steps {
                 ansiblePlaybook(
                     playbook: 'ansible-playbook.yml',
-                    tags: 'section1'
+                    tags: 'section2'
                 )
             }
         }
