@@ -15,7 +15,7 @@ pipeline {
                         def doesJavaRock = input(message: 'Do you like Java?', ok: 'Yes', 
                             parameters: [booleanParam(defaultValue: true, 
                             description: 'If you like Java, just push the button',name: 'Yes?')])
-                        sh "echo "Java rocks?:" + doesJavaRock"
+                        echo "Java rocks?:" + doesJavaRock
                         // Show the select input modal
 //                        def INPUT_PARAMS = input message: 'Please Provide Parameters', ok: 'Next',
 //                            parameters: [
