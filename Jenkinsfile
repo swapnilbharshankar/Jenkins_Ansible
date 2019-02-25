@@ -20,7 +20,7 @@ pipeline {
                                 ]
                             )
                         env.ENVIRONMENT = doesJavaRock.ENVIRONMENT
-                        echo ${env}
+                        echo "ENV:" + ${env.ENVIRONMENT}
                         // Show the select input modal
 //                        def INPUT_PARAMS = input message: 'Please Provide Parameters', ok: 'Next',
 //                            parameters: [
