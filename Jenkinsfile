@@ -10,10 +10,12 @@ pipeline {
         }
         stage('Run Ansible Playbook') {
             steps {
-                ansiblePlaybook(
-                    inventory: hosts,
-                    playbook: ansible-playbook.yml
-                )
+                node {
+                    ansiblePlaybook(
+                        inventory: hosts,
+                        playbook: ansible-playbook.yml
+                    )
+                }
             }
         }
     }
