@@ -3,10 +3,10 @@ pipeline {
  //   parameters {
  //       choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
  //   }
-    stages{
-        parameters [
+    parameters [
             choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-        ]
+    ]
+    stages{
 
         stage('Start Docker Service') {
             steps {
