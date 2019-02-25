@@ -1,4 +1,3 @@
-@Library('env')
 pipeline {
     agent any
     stages{
