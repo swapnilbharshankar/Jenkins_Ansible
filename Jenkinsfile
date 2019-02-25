@@ -26,7 +26,7 @@ pipeline {
             steps {
                 ansiblePlaybook(
                     playbook: 'ansible-playbook.yml',
-                    tags: '${env.ENVIRONMENT}'
+                    tags: 'section1'
                 )
             }
         }
