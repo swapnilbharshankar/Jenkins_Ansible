@@ -13,4 +13,5 @@ pipeline {
                 playbook: ansible-playbook.yml
             )
         }
+    }
 }
