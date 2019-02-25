@@ -11,7 +11,7 @@ pipeline {
         stage('Run Ansible Playbook') {
             steps {
                 ansiblePlaybook(
-                    playbook: ansible-playbook.yml
+                    playbook: ${WORKSPACE}/ansible-playbook.yml
                 )
             }
         }
