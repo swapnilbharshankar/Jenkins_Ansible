@@ -1,0 +1,20 @@
+---
+    - name: Wait for port 80 to become open
+      wait_for:
+        port: 80
+        delay: 50
+
+    - name: Application Health Check Port 80
+      uri:
+        url: http://localhost
+        return_content: yes
+      register: web_content
+      failed_when: "'Cambridge Semantics - AnzoGraph Login' not in web_content.content"
+
+    - name: Application Health Check Port 443
+      uri:
+        url: https://localhost
+        validate_certs: False
+        return_content: yes
+      register: web_content_https
+      failed_when: "'Cambridge Semantics - AnzoGraph Login' not in web_content_https.content"
