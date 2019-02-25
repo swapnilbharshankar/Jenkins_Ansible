@@ -1,0 +1,5 @@
+---
+# tasks file for wp
+  - include: section1.yml
+    tags:
+      - section1
