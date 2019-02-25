@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    parameters {
-        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-    }
+ //   parameters {
+ //       choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+ //   }
     stages{
         stage('Start Docker Service') {
             steps {
@@ -13,6 +13,9 @@ pipeline {
         }
         stage('Select ENV') {
             steps {
+                parameters {
+                    choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+                }
                 echo "Choice: ${params.CHOICE}"
 //                timeout(time: 30, unit: 'SECONDS') {
 //                    script {
