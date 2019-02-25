@@ -13,7 +13,8 @@ pipeline {
                 timeout(time: 30, unit: 'SECONDS') {
                     script {
                         def doesJavaRock = input(message: 'Please Provide Input', ok: 'Yes', 
-                            parameters: [booleanParam(defaultValue: true, 
+//                            parameters: [booleanParam(defaultValue: true, 
+                            parameters: [booleanParam(choices: ['section1','section2'].join('\n'), 
                             description: 'If you like Java, just push the button',name: 'Yes?')])
                         echo "Java rocks?:" + doesJavaRock
                         // Show the select input modal
