@@ -1,5 +1,5 @@
 ---
     - name: Application Health Check Port 80
       uri:
-        url: http://localhost
+        url: http://localhost:8000
         return_content: yes
