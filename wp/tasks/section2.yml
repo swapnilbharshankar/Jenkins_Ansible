@@ -2,4 +2,5 @@
     - name: Application Health Check Port 80
       uri:
         url: http://localhost:8000
-        return_content: yes
+        method: GET
+        status_code: 200
