@@ -1,2 +1,5 @@
 ---
 # vars file for wp
+
+image_name_nginx : docker.io/nginx:latest
+container_name_nginx : nginx
