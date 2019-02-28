@@ -26,7 +26,7 @@ pipeline {
 //                        extraVar("http", "80:8080", true)
 //                        extraVar("https", "443:8443", true)
                     
-                }
+                //}
             }
 //            steps {
 //                sh "ansible-playbook ansible-playbook.yml -t ${params.CHOICE}"
