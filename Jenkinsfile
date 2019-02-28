@@ -21,6 +21,8 @@ pipeline {
             steps {
                 ansiblePlaybook([
                     playbook: 'ansible-playbook.yml',
+                    installation: 'ansible',
+                    colorized   : true,
                     extraVars: [
                         'wordpress_image', 'wordpress:latest',
                         'mysql_image', 'mysql:5.7',
