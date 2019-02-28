@@ -19,13 +19,13 @@ pipeline {
         }
         stage('Run Ansibel Playbook') {
             steps {
-                ansiblePlaybook('ansible-playbook.yml') {
-                    extraVars {
-                        extraVar("image_name", "docker.io/cambridgesemantics/anzograph:latest", true)
-                        extraVar("container_name", "anzograph", true)
-                        extraVar("http", "80:8080", true)
-                        extraVar("https", "443:8443", true)
-                    }
+                ansiblePlaybook('ansible-playbook.yml') 
+//                    extraVars {
+//                        extraVar("image_name", "docker.io/cambridgesemantics/anzograph:latest", true)
+//                        extraVar("container_name", "anzograph", true)
+//                        extraVar("http", "80:8080", true)
+//                        extraVar("https", "443:8443", true)
+                    
                 }
             }
 //            steps {
