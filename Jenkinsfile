@@ -21,10 +21,10 @@ pipeline {
             steps {
                 ansiblePlaybook('ansible-playbook.yml') {
                     extraVars {
-                        extraVar("image_name", "docker.io/cambridgesemantics/anzograph:latest")
-                        extraVar("container_name", "anzograph")
-                        extraVar("http", "80:8080")
-                        extraVar("https", "443:8443")
+                        extraVar("image_name", "docker.io/cambridgesemantics/anzograph:latest", true)
+                        extraVar("container_name", "anzograph", true)
+                        extraVar("http", "80:8080", true)
+                        extraVar("https", "443:8443", true)
                     }
                 }
             }
