@@ -24,6 +24,7 @@ pipeline {
         stage('Choosed Option') {
             steps {
                 echo "Choice: ${params.CHOICE}"
+                echo "wordpress_image: ${wordpress_image_name}"
             }
         }
         stage('Run Ansibel Playbook') {
