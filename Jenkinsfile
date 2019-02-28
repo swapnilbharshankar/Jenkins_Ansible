@@ -1,3 +1,8 @@
+wordpress_image_name = 'wordpress:latest'
+mysql_image_name = 'mysql:5.7'
+http = '8000:80'
+
+
 pipeline {
     agent any
     parameters {
