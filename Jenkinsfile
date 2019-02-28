@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Run Ansibel Playbook') {
             steps {
-                ansiblePlaybook(
+                ansiblePlaybook([
                     playbook: 'ansible-playbook.yml',
                     extraVars: [
                         'wordpress_image', 'wordpress:latest',
@@ -29,7 +29,7 @@ pipeline {
 //                        extraVar [Key: 'mysql_image', Value: 'mysql:5.7', hidden: true]
 //                        extraVar [Key: 'http',Value: '8000:80', hidden: true]
                     ]
-                )
+                ])
 //                ansiblePlaybook('ansible-playbook.yml') {
 //                    extraVars {
 //                        extraVar("mysql_image", "mysql:5.7", true)
