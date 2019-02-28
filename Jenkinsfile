@@ -4,6 +4,13 @@ pipeline {
             choice(name: 'CHOICE', choices: ['section1', 'section2'], description: 'Pick something')
     }
     stages{
+        stage('Variables') {
+            steps {
+                env.wordpress_image_name = "wordpress:latest"
+                env.mysql_image_name = "mysql:5.7"
+                env.http = "8000:80"
+            }
+        }
 
         stage('Start Docker Service On Slave') {
             steps {
@@ -23,9 +30,12 @@ pipeline {
                     playbook: 'ansible-playbook.yml',
                     tags: "${params.CHOICE}",
                     extraVars: [
-                        wordpress_image: "wordpress:latest",
-                        mysql_image: "mysql:5.7",
-                        http: "8000:80",
+                        wordpress_image: "${env.wordpress_image_name}",
+                        mysql_image: "${env.mysql_image_name}",
+                        http: "${env.http}",
+//                        wordpress_image: "wordpress:latest",
+//                        mysql_image: "mysql:5.7",
+//                        http: "8000:80",
 //                        extraVar [Key: 'wordpress_image', Value: 'wordpress:latest', hidden: true]
 //                        extraVar [Key: 'mysql_image', Value: 'mysql:5.7', hidden: true]
 //                        extraVar [Key: 'http',Value: '8000:80', hidden: true]
