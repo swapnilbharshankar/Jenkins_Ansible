@@ -9,16 +9,6 @@ pipeline {
             choice(name: 'CHOICE', choices: ['section1', 'section2'], description: 'Pick something')
     }
     stages{
-        stage('Variables') {
-            steps {
-                script {
-                    def wordpress_image_name = 'wordpress:latest'
-                    def mysql_image_name = 'mysql:5.7'
-                    def http = '8000:80'
-                }
-            }
-        }
-
         stage('Start Docker Service On Slave') {
             steps {
                 sh "/etc/init.d/docker start"
