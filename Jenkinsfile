@@ -19,13 +19,16 @@ pipeline {
         }
         stage('Run Ansibel Playbook') {
             steps {
-                ansiblePlaybook('ansible-playbook.yml') {
-                    extraVars {
-                        extraVar("mysql_image", "mysql:5.7", true)
-                        extraVar("wordpress_image", "wordpress:latest", true)
-                        extraVar("http", "80:8080", true)
-                    }
-                }
+                ansiblePlaybook(
+                    playbook: 'ansible-playbook.yml'
+                )
+//                ansiblePlaybook('ansible-playbook.yml') {
+//                    extraVars {
+//                        extraVar("mysql_image", "mysql:5.7", true)
+//                        extraVar("wordpress_image", "wordpress:latest", true)
+//                        extraVar("http", "80:8080", true)
+//                    }
+//                }
 
 //                    extraVars {
 //                        extraVar("image_name", "docker.io/cambridgesemantics/anzograph:latest", true)
