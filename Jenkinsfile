@@ -19,8 +19,19 @@ pipeline {
         }
         stage('Run Ansibel Playbook') {
             steps {
-                sh "ansible-playbook ansible-playbook.yml -t ${params.CHOICE}"
+                ansiblePlaybook(
+                    playbook: 'ansible-playbook.yml'
+                    extraVars {
+                        extraVar("image_name", "docker.io/cambridgesemantics/anzograph:latest")
+                        extraVar("container_name", "anzograph")
+                        extraVar("http", "80:8080")
+                        extraVar("https", "443:8443")
+                    }
+                )
             }
+//            steps {
+//                sh "ansible-playbook ansible-playbook.yml -t ${params.CHOICE}"
+//            }
         }
 //        stage('Run Ansible Playbook') {
 //            steps {
