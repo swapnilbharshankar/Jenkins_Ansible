@@ -20,7 +20,7 @@ pipeline {
         stage('Run Ansibel Playbook') {
             steps {
                 ansiblePlaybook(
-                    playbook: 'ansible-playbook.yml'
+                    playbook: 'ansible-playbook.yml',
                     extraVars {
                         extraVar("image_name", "docker.io/cambridgesemantics/anzograph:latest")
                         extraVar("container_name", "anzograph")
