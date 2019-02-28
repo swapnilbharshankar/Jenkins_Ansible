@@ -7,7 +7,7 @@
       version: "2"
       services:
         db:
-          image: mysql:5.7
+          image: "{{ mysql_image }}"
           volumes:
             - db_data:/var/lib/mysql
           restart: always
@@ -19,9 +19,9 @@
         wordpress:
           depends_on:
             - db
-          image: wordpress:latest
+          image: "{{ wordpress_image }}"
           ports:
-            - "8000:80"
+            - "{{ http }}"
           restart: always
           environment:
             WORDPRESS_DB_HOST: db:3306
