@@ -7,9 +7,9 @@ pipeline {
         stage('Variables') {
             steps {
                 script {
-                    env.wordpress_image_name = "wordpress:latest"
-                    env.mysql_image_name = "mysql:5.7"
-                    env.http = "8000:80"
+                    def wordpress_image_name = "wordpress:latest"
+                    def mysql_image_name = "mysql:5.7"
+                    def http = "8000:80"
                 }
             }
         }
@@ -32,9 +32,9 @@ pipeline {
                     playbook: 'ansible-playbook.yml',
                     tags: "${params.CHOICE}",
                     extraVars: [
-                        wordpress_image: "${env.wordpress_image_name}",
-                        mysql_image: "${env.mysql_image_name}",
-                        http: "${env.http}",
+                        wordpress_image: "${wordpress_image_name}",
+                        mysql_image: "${mysql_image_name}",
+                        http: "${http}",
 //                        wordpress_image: "wordpress:latest",
 //                        mysql_image: "mysql:5.7",
 //                        http: "8000:80",
