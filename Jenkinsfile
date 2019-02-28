@@ -24,7 +24,7 @@ pipeline {
         stage('Choosed Option') {
             steps {
                 echo "Choice: ${params.CHOICE}"
-                sh "echo hello
+                sh "echo hello"
                 echo "wordpress_image: ${wordpress_image_name}"
             }
         }
