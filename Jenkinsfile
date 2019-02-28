@@ -21,12 +21,11 @@ pipeline {
             steps {
                 ansiblePlaybook([
                     playbook: 'ansible-playbook.yml',
-                    installation: 'ansible',
-                    colorized   : true,
+                    colorized: true,
                     extraVars: [
-                        wordpress_image, 'wordpress:latest',
-                        mysql_image, 'mysql:5.7',
-                        http, '8000:80',
+                        wordpress_image, "wordpress:latest",
+                        mysql_image, "mysql:5.7",
+                        http, "8000:80",
 //                        extraVar [Key: 'wordpress_image', Value: 'wordpress:latest', hidden: true]
 //                        extraVar [Key: 'mysql_image', Value: 'mysql:5.7', hidden: true]
 //                        extraVar [Key: 'http',Value: '8000:80', hidden: true]
