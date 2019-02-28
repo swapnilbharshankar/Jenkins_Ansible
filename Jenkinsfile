@@ -21,7 +21,7 @@ pipeline {
             steps {
                 ansiblePlaybook([
                     playbook: 'ansible-playbook.yml',
-                    tags: '\${params.CHOICE}',
+                    tags: "${params.CHOICE}",
                     extraVars: [
                         wordpress_image: "wordpress:latest",
                         mysql_image: "mysql:5.7",
