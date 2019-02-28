@@ -22,8 +22,9 @@ pipeline {
                 ansiblePlaybook(
                     playbook: 'ansible-playbook.yml',
                     extraVars: [
-                        wordpress_image : [Value: 'wordpress:latest', hidden: true]
-                        mysql_image: [Value: 'mysql:5.7', hidden: true]
+                        extraVar [Key: 'wordpress_image', Value: 'wordpress:latest', hidden: true]
+                        extraVar [Key: 'mysql_image', Value: 'mysql:5.7', hidden: true]
+                        extraVar [Key: 'http',Value: '8000:80', hidden: true]
                     ]
                 )
 //                ansiblePlaybook('ansible-playbook.yml') {
