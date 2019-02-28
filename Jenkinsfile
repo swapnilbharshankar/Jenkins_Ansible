@@ -6,9 +6,11 @@ pipeline {
     stages{
         stage('Variables') {
             steps {
-                env.wordpress_image_name = "wordpress:latest"
-                env.mysql_image_name = "mysql:5.7"
-                env.http = "8000:80"
+                script {
+                    env.wordpress_image_name = "wordpress:latest"
+                    env.mysql_image_name = "mysql:5.7"
+                    env.http = "8000:80"
+                }
             }
         }
 
