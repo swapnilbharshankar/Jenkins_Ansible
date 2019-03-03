@@ -2,7 +2,7 @@
   - name: Create Nginx Container
     docker_container:
       name: "{{ container_name }}"
-      image: "{{ image_name }}"
+      image: "{{ image_name_nginx }}"
       state: started
       ports:
         - 80:8000
