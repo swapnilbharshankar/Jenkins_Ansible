@@ -1,6 +1,7 @@
 wordpress_image_name = 'wordpress:latest'
 mysql_image_name = 'mysql:5.7'
 http = '8000:80'
+image_name_nginx = 'nginx:latest'
 
 
 pipeline {
@@ -32,6 +33,7 @@ pipeline {
                         wordpress_image: "${wordpress_image_name}",
                         mysql_image: "${mysql_image_name}",
                         http: "${http}",
+                        image_name_nginx: "${image_name_nginx}"
 //                        wordpress_image: "wordpress:latest",
 //                        mysql_image: "mysql:5.7",
 //                        http: "8000:80",
@@ -53,7 +55,7 @@ pipeline {
 //                        extraVar("container_name", "anzograph", true)
 //                        extraVar("http", "80:8080", true)
 //                        extraVar("https", "443:8443", true)
-                    
+
                 //}
             }
 //            steps {
