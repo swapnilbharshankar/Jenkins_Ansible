@@ -24,7 +24,7 @@ pipeline {
                 echo "wordpress_image: ${wordpress_image_name}"
             }
         }
-        stage('Run Ansibel Playbook') {
+        stage('Run Ansible Playbook') {
             steps {
                 ansiblePlaybook([
                     playbook: 'ansible-playbook.yml',
