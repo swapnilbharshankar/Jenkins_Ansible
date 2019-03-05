@@ -5,8 +5,24 @@ properties([
 ])
 
 pipeline {
-    agent any 
+    agent any
     stages {
+        stage ('Select Branch') {
+            steps {
+                dir('demo') {
+                    checkout([
+                        $class: 'GitSCM',
+                        branches: [[name: '*/demo']],
+                        doGenerateSubmoduleConfigurations: false,
+                        extensions: [],
+                        submoduleCfg: [],
+                        userRemoteConfigs: [[
+                            url: "https://github.com/swapnilbharshankar/Jenkins_Ansible.git"
+                        ]]
+                    ])
+                }
+            }
+        }
         stage('Check docker is running') {
             steps {
                 echo "Hello"
