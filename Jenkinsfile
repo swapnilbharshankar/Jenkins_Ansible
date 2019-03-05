@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Check docker is running') {
             steps {
-                echo "Hello demo"
+                echo "Hello demo user"
             }
         }
     }
