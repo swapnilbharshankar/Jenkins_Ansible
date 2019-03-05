@@ -12,7 +12,7 @@ pipeline {
                 dir('demo') {
                     checkout([
                         $class: 'GitSCM',
-                        branches: [[name: '*/demo']],
+                        branches: [[name: '*/user']],
                         doGenerateSubmoduleConfigurations: false,
                         extensions: [],
                         submoduleCfg: [],
