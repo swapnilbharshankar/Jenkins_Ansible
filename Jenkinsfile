@@ -23,9 +23,12 @@ pipeline {
                 }
             }
         }
-        stage('Check docker is running') {
+        stage('Checkout Only Master Branch') {
+            when { branch 'master' }
             steps {
-                echo "Hello abc"
+                sh '''
+                cat Jenkinsfile
+                '''
             }
         }
     }
