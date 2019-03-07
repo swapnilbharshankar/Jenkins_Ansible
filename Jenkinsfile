@@ -17,6 +17,7 @@ pipeline {
                         extensions: [],
                         submoduleCfg: [],
                         userRemoteConfigs: [[
+                            credentialsId: 'git_creds',
                             url: "https://github.com/swapnilbharshankar/Jenkins_Ansible.git"
                         ]]
                     ])
