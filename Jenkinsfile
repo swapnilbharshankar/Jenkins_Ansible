@@ -12,7 +12,7 @@ pipeline {
                 dir('demo') {
                     checkout([
                         $class: 'GitSCM',
-                        branches: [[name: '*/user']],
+                        branches: [[name: '*/master']],
                         doGenerateSubmoduleConfigurations: false,
                         extensions: [],
                         submoduleCfg: [],
@@ -24,7 +24,7 @@ pipeline {
             }
         }
         stage('Checkout Only Master Branch') {
-            when { branch 'user' }
+            when { branch 'master' }
             steps {
                 sh '''
                 cat Jenkinsfile
