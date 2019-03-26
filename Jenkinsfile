@@ -1,55 +1,34 @@
-
-import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
-
-def checkBox (String name, String values, String defaultValue,
-              int visibleItemCnt=0, String description='', String delimiter=',') {
-
-    // default same as number of values
-    visibleItemCnt = visibleItemCnt ?: values.split(',').size()
-    return new ExtendedChoiceParameterDefinition(
-            name, //name,
-            "PT_CHECKBOX", //type
-            values, //value
-            "", //projectName
-            "", //propertyFile
-            "", //groovyScript
-            "", //groovyScriptFile
-            "", //bindings
-            "", //groovyClasspath
-            "", //propertyKey
-            defaultValue, //defaultValue
-            "", //defaultPropertyFile
-            "", //defaultGroovyScript
-            "", //defaultGroovyScriptFile
-            "", //defaultBindings
-            "", //defaultGroovyClasspath
-            "", //defaultPropertyKey
-            "", //descriptionPropertyValue
-            "", //descriptionPropertyFile
-            "", //descriptionGroovyScript
-            "", //descriptionGroovyScriptFile
-            "", //descriptionBindings
-            "", //descriptionGroovyClasspath
-            "", //descriptionPropertyKey
-            "", //javascriptFile
-            "", //javascript
-            false, //saveJSONParameterToFile
-            false, //quoteValue
-            visibleItemCnt, //visibleItemCount
-            description, //description
-            delimiter //multiSelectDelimiter
-            )
+class dropDown
+{
+    def static newInst(name)
+    {
+        def com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition test = 
+          new com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition(
+            name,
+            "PT_MULTI_SELECT",
+            "A,B,C,D,E,F",  // displayed selection values
+            null,//project name
+            null,null,null,
+            null,// bindings
+            null,
+            null, // propertykey
+            "B", //default value
+            null,null,null,
+            null, //default bindings
+            null,null,
+            null, //descriptionPropertyValue
+            null,null,null,null,null,null,
+            null,// javascript file
+            null, // javascript
+            false, // save json param to file
+            false, // quote
+            5, // visible item count
+            null,
+            "," // separator
+        )
+        return test
 }
-def testParam = checkBox("opt", // name
-                "opt1,opt2,opt3", // values
-                "opt1", //default value
-                0, //visible item cnt
-                "Multi-select", // description
-                )
 
-properties(
-  [parameters([testParam])]
-)
 
 //start
 properties([
