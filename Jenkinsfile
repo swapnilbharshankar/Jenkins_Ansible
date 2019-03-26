@@ -31,11 +31,6 @@ class dropDown
 
 
 //start
-properties([
-    parameters([
-        string(description: 'Branch', name: 'branch', defaultValue: 'master'),
-    ])
-])
 
 pipeline {
     agent any 
